@@ -13,6 +13,7 @@ Addressable bid requests are used to present the current scale. These bid reques
 Addressable PA API scale is then calculated in the following way: Scale = a/b * 100%, where
 
 a - stands for addressable PA API bid requests from cookieless Chrome
+
 b - stands for all addressable bid requests incoming via Chrome
 
 This logic is described visually in the addressable_paapi_scale.png file.
