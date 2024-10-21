@@ -12,21 +12,23 @@ Addressable bid requests are used to present the current scale. These bid reques
 
 **More technical details**
 
-Addressable PA API scale is then calculated in the following way: Scale = a/b * 100%, where
+Addressable PA API scale is calculated in the following way: 
 
-a - stands for addressable PA API bid requests from cookieless Chrome
+&nbsp;&nbsp;&nbsp;**Scale = a/b * 100%**, where
 
-b - stands for all addressable bid requests incoming via Chrome
+a - stands for the addressable PA API bid requests from cookieless Chrome
 
-The source for counting PA API addressable bid requests are the bid debug reports. Since one bid request can include multiple interest group and may result in multiple auctions performed, they are deduplicated by the request ID. Only the bid requests from Chrome treatment_1.* labels (cookieless) are included to calculate addressable PA API bid requests.
+b - stands for all addressable bid requests incoming from Chrome
 
-To calculate all addressable bid requests coming from Chrome browsers both the 
+The source for counting PA API addressable bid requests are the bid debug reports. Since one bid request can include multiple interest groups and may result in multiple auctions performed, they are deduplicated by the request ID. Only the bid requests from Chrome treatment_1.* labels (cookieless) are included to calculate addressable PA API bid requests.
 
-This logic is described visually in the addressable_paapi_scale.png file.
+To calculate all addressable bid requests coming from Chrome browsers the cookieless PA API, PA API with cookie and classic bid requests are included
+
+This logic is presented visually on the graph in the addressable_paapi_scale.png file.
 
 **Technical details impossible to include**
 
-Bid debug reports are the only source for the analysis of the incoming bid requests in PA API. Their character doesn't allow to include some factors that may influence the results, like for example timeouts and bids not answered for unidentified reasons. Also the buyer not being present on the publisher's buyers list or not completed campaigns PA API migration on the buyer side may affect the result. Different lifetime of a cookie and interest group also influences the results but comes from native attributes of those two environments. It was a conscious decision not to include this factor in calculations.
+Bid debug reports are the only source for the analysis of the incoming bid requests in PA API. Their character doesn't allow to include some factors that may influence the results, like for example timeouts and bids not answered for unidentified reasons. Also the buyer not being present on the publisher's buyers list or not completed campaigns PA API migration on the buyer side may affect the result. Different lifetime of a cookie and interest group also influences the results but comes from native attributes of those two environments. It was a conscious decision not to include this specific factor in calculations.
 
-There are multiple reasons that influence the PA API addressable bid requests scale calculations, but are impossible or doubtful to include due to technical reasons. Since the bid debug reports are the only source for the analysis of the incoming bid requests in PA API, it is important to raise that Chrome is planning to throttle them in the future. When that happens the calculations will no longer be possible. If the size of sampling will be known some estimations may be possible, but the precision will drop.
+There are multiple reasons that influence the PA API addressable bid requests scale calculations, but are impossible or doubtful to include due to technical reasons. Since the bid debug reports are the only available source for the analysis of the incoming bid requests in PA API, it is important to note that Chrome is planning to throttle them in the future. Once that happens, the calculations will no longer be feasible. Some estimations might still be possible if the sampling size is known, but accuracy will be decreased.
 
