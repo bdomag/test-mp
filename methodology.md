@@ -8,7 +8,7 @@ The straightforward approach of simply comparing the number of PA API bid reques
 
 **Addressable PA API scale**
 
-Addressable bid requests are used to present the current scale. These bid requests represent users who are available for a buyer to bid for. Specifically, for this case they are the users who belong to at least one buyer’s interest group. The green or red indicator above the value shows the week-to-week change. Information about addressable bid requests is currently available; however, at an unspecified time in the future, Chrome will be throttling these reports, making these calculations impossible.
+Addressable bid requests are used to present the current scale. These bid requests represent users who are available for a buyer to bid for. Specifically, for this case they are the users who belong to at least one buyer’s interest group. The values are presented in packets aggregated by week. The green or red indicator above the value shows the week-to-week change.
 
 **More technical details**
 
