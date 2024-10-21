@@ -22,7 +22,7 @@ b - stands for all addressable bid requests incoming from Chrome
 
 The source for counting PA API addressable bid requests are the bid debug reports. Since one bid request can include multiple interest groups and may result in multiple auctions performed, they are deduplicated by the request ID. Only the bid requests from Chrome treatment_1.* labels (cookieless) are included to calculate addressable PA API bid requests.
 
-To calculate all addressable bid requests coming from Chrome browsers the cookieless PA API, PA API with cookie and classic bid requests are included
+To calculate all addressable bid requests coming from Chrome browsers the cookieless PA API, PA API with cookie and classic bid requests are included.
 
 This logic is presented visually on the graph in the addressable_paapi_scale.png file.
 
